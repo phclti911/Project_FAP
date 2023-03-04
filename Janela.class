@@ -1,0 +1,245 @@
+package energiav3;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle;
+
+public class Janela extends JFrame {
+  EnergiaV3 conta;
+  
+  private JTextField Campo1;
+  
+  private JTextField Campo2;
+  
+  private JTextField Campo3;
+  
+  private JTextField Campo4;
+  
+  private JTextField Campo5;
+  
+  private JButton jButton1;
+  
+  private JLabel jLabel1;
+  
+  private JLabel jLabel2;
+  
+  private JLabel jLabel3;
+  
+  private JLabel jLabel4;
+  
+  private JLabel jLabel5;
+  
+  private JLabel jLabel6;
+  
+  private JLabel jLabel7;
+  
+  private JTextField texto;
+  
+  public Janela() {
+    this.conta = new EnergiaV3();
+    initComponents();
+  }
+  
+  private void initComponents() {
+    this.jLabel2 = new JLabel();
+    this.jLabel1 = new JLabel();
+    this.Campo1 = new JTextField();
+    this.jLabel3 = new JLabel();
+    this.Campo2 = new JTextField();
+    this.jLabel4 = new JLabel();
+    this.Campo3 = new JTextField();
+    this.jLabel5 = new JLabel();
+    this.Campo4 = new JTextField();
+    this.jLabel6 = new JLabel();
+    this.Campo5 = new JTextField();
+    this.jLabel7 = new JLabel();
+    this.texto = new JTextField();
+    this.jButton1 = new JButton();
+    this.jLabel2.setText("jLabel2");
+    setDefaultCloseOperation(3);
+    this.jLabel1.setText("Calculadora de Energia - By PHCL");
+    this.Campo1.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent evt) {
+            Janela.this.Campo1ActionPerformed(evt);
+          }
+        });
+    this.jLabel3.setText("Nome:");
+    this.Campo2.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent evt) {
+            Janela.this.Campo2ActionPerformed(evt);
+          }
+        });
+    this.Campo2.addKeyListener(new KeyAdapter() {
+          public void keyTyped(KeyEvent evt) {
+            Janela.this.Campo2KeyTyped(evt);
+          }
+        });
+    this.jLabel4.setText("Valor Final");
+    this.Campo3.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent evt) {
+            Janela.this.Campo3ActionPerformed(evt);
+          }
+        });
+    this.jLabel5.setText("Valor Inicial");
+    this.Campo4.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent evt) {
+            Janela.this.Campo4ActionPerformed(evt);
+          }
+        });
+    this.jLabel6.setText("Valor KW (Com . n,)");
+    this.Campo5.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent evt) {
+            Janela.this.Campo5ActionPerformed(evt);
+          }
+        });
+    this.jLabel7.setText("Valor em R$");
+    this.texto.addMouseListener(new MouseAdapter() {
+          public void mouseEntered(MouseEvent evt) {
+            Janela.this.textoMouseEntered(evt);
+          }
+        });
+    this.texto.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent evt) {
+            Janela.this.textoActionPerformed(evt);
+          }
+        });
+    this.jButton1.setText("Salvar Valor Inicial em .txt");
+    this.jButton1.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent evt) {
+            Janela.this.jButton1ActionPerformed(evt);
+          }
+        });
+    GroupLayout layout = new GroupLayout(getContentPane());
+    getContentPane().setLayout(layout);
+    layout.setHorizontalGroup(layout
+        .createParallelGroup(GroupLayout.Alignment.LEADING)
+        .addGroup(layout.createSequentialGroup()
+          .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+              .addGap(22, 22, 22)
+              .addComponent(this.jLabel4))
+            .addGroup(layout.createSequentialGroup()
+              .addGap(14, 14, 14)
+              .addComponent(this.Campo2, -2, 85, -2)))
+          .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+              .addGap(42, 42, 42)
+              .addComponent(this.jLabel5)
+              .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                  .addGap(79, 79, 79)
+                  .addComponent(this.Campo4, -2, 77, -2)
+                  .addGap(57, 57, 57))
+                .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                  .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                  .addComponent(this.jLabel6)
+                  .addGap(24, 24, 24))))
+            .addGroup(layout.createSequentialGroup()
+              .addGap(33, 33, 33)
+              .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addComponent(this.Campo3, -2, 84, -2)
+                .addGroup(layout.createSequentialGroup()
+                  .addComponent(this.Campo5, -2, 136, -2)
+                  .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 14, 32767)
+                  .addComponent(this.jButton1)))
+              .addContainerGap())))
+        .addGroup(layout.createSequentialGroup()
+          .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+              .addGap(116, 116, 116)
+              .addComponent(this.jLabel1))
+            .addGroup(layout.createSequentialGroup()
+              .addGap(101, 101, 101)
+              .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addComponent(this.jLabel3)
+                .addComponent(this.Campo1, -2, 164, -2)))
+            .addGroup(layout.createSequentialGroup()
+              .addGap(110, 110, 110)
+              .addComponent(this.texto, -2, 169, -2))
+            .addGroup(layout.createSequentialGroup()
+              .addGap(156, 156, 156)
+              .addComponent(this.jLabel7)))
+          .addContainerGap(-1, 32767)));
+    layout.setVerticalGroup(layout
+        .createParallelGroup(GroupLayout.Alignment.LEADING)
+        .addGroup(layout.createSequentialGroup()
+          .addContainerGap()
+          .addComponent(this.jLabel1)
+          .addGap(14, 14, 14)
+          .addComponent(this.jLabel3)
+          .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+          .addComponent(this.Campo1, -2, -1, -2)
+          .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+              .addGap(28, 28, 28)
+              .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                .addComponent(this.jLabel4)
+                .addComponent(this.jLabel5)))
+            .addGroup(layout.createSequentialGroup()
+              .addGap(24, 24, 24)
+              .addComponent(this.jLabel6)
+              .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+              .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                .addComponent(this.Campo2, -2, -1, -2)
+                .addComponent(this.Campo3, -2, -1, -2)
+                .addComponent(this.Campo4, -2, -1, -2))))
+          .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 44, 32767)
+          .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+              .addComponent(this.texto, -2, -1, -2)
+              .addGap(18, 18, 18)
+              .addComponent(this.jLabel7, -2, 16, -2)
+              .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+              .addComponent(this.Campo5, -2, -1, -2)
+              .addGap(24, 24, 24))
+            .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+              .addComponent(this.jButton1)
+              .addContainerGap()))));
+    pack();
+  }
+  
+  private void Campo1ActionPerformed(ActionEvent evt) {
+    this.conta.nome = this.Campo1.getText();
+  }
+  
+  private void Campo2ActionPerformed(ActionEvent evt) {
+    this.conta.valor_final = Double.parseDouble(this.Campo2.getText());
+  }
+  
+  private void Campo3ActionPerformed(ActionEvent evt) {
+    this.conta.valor_inicial = Double.parseDouble(this.Campo3.getText());
+  }
+  
+  private void Campo4ActionPerformed(ActionEvent evt) {
+    this.conta.valor_kw = Double.parseDouble(this.Campo4.getText());
+  }
+  
+  private void Campo5ActionPerformed(ActionEvent evt) {
+    double calc = this.conta.Calcula(this.conta.valor_inicial, this.conta.valor_final, this.conta.valor_kw);
+    String str = Double.toString(calc);
+    this.Campo5.setText(str);
+  }
+  
+  private void Campo2KeyTyped(KeyEvent evt) {}
+  
+  private void textoActionPerformed(ActionEvent evt) {}
+  
+  private void textoMouseEntered(MouseEvent evt) {
+    this.texto.setText(this.conta.nome);
+  }
+  
+  private void jButton1ActionPerformed(ActionEvent evt) {
+    double in = this.conta.valor_inicial;
+    String str = Double.toString(in);
+    EnergiaV3.Imprime_data(this.conta.nome.concat(str));
+  }
+}
