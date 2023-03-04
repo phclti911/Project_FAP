@@ -1,0 +1,83 @@
+package energiav3;
+
+import java.awt.EventQueue;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
+public class EnergiaV3 {
+  String nome;
+  
+  double valor_inicial;
+  
+  double valor_final;
+  
+  double valor_kw;
+  
+  double valor_real;
+  
+  public static void main(String[] args) {
+    Aviso();
+    EventQueue.invokeLater(() -> (new Janela()).setVisible(true));
+  }
+  
+  public String getNome() {
+    return this.nome;
+  }
+  
+  public double getValor_inicial() {
+    return this.valor_inicial;
+  }
+  
+  public double getValor_kw() {
+    return this.valor_kw;
+  }
+  
+  public double getValor_final() {
+    return this.valor_final;
+  }
+  
+  public double getValor_real() {
+    return this.valor_real;
+  }
+  
+  public double Calcula(double v1, double v2, double v3) {
+    double calc = v1 - v2;
+    double res = calc * v3;
+    return res * -1.0D;
+  }
+  
+  public static void Imprime_data(String content) {
+    try {
+      File file = new File("Dados.txt");
+      if (!file.exists())
+        file.createNewFile(); 
+      FileWriter fw = new FileWriter(file.getAbsoluteFile());
+      try (BufferedWriter bw = new BufferedWriter(fw)) {
+        bw.write(content);
+      } 
+      FileReader ler = new FileReader("Dados.txt");
+      BufferedReader reader = new BufferedReader(ler);
+      String linha;
+      while ((linha = reader.readLine()) != null)
+        System.out.println(linha); 
+      StringBuilder mensagem = new StringBuilder();
+      String aviso = "Arquivo salvo com sucesso em txt - Dados.txt";
+      mensagem.append(aviso).append("!");
+      JOptionPane.showMessageDialog(null, mensagem);
+    } catch (IOException e) {
+      e.printStackTrace();
+    } 
+  }
+  
+  public static void Aviso() {
+    StringBuilder mensagem = new StringBuilder();
+    String aviso = "Por favor aperte enter em todas as caixas de valores para obter os dados corretamente";
+    mensagem.append(aviso).append("!");
+    JOptionPane.showMessageDialog(null, mensagem);
+  }
+}
